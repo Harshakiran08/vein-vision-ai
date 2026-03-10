@@ -63,9 +63,6 @@ vein-vision-ai/
 │   ├── predict.py           # Prediction script
 │   └── utils.py             # Helper functions
 │
-├── notebooks/
-│   └── vein_detection.ipynb # Jupyter notebook experiments
-│
 ├── results/
 │   ├── predictions/         # Output segmented images
 │   └── evaluation/          # Accuracy and performance metrics
