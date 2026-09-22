@@ -1,198 +1,292 @@
-# Vein-Vision: AI-Based Vein Detection System
+# Vein Vision AI
+
+> Deep learning-based medical image segmentation for detecting and visualizing vein structures from skin images using U-Net and R2U-Net.
 
 ## Overview
 
-Vein-Vision is an AI-powered medical image segmentation system designed to automatically detect and highlight veins from skin images. The system uses deep learning techniques to improve vein visibility, which can assist healthcare professionals during procedures such as intravenous injections, blood sampling, and medical diagnostics.
+**Vein Vision AI** is a computer vision and deep learning project that performs **vein segmentation from medical skin images**.
 
-The project applies Convolutional Neural Network (CNN) architectures such as **U-Net** and **R2U-Net** for accurate vein segmentation. These models learn vein patterns from medical image datasets and generate segmented output images that clearly highlight vein structures.
+The system uses semantic segmentation models to identify vein regions and generate segmentation masks that make the detected structures easier to visualize.
 
-This project demonstrates how **Artificial Intelligence, Computer Vision, and Deep Learning** can be applied to healthcare imaging systems to improve precision and efficiency.
+The project explores the application of **deep learning, image processing, and biomedical image analysis** using U-Net and R2U-Net architectures.
 
----
-
-## Features
-
-* Automated **vein detection from input images**
-* **Deep learning-based image segmentation**
-* Implementation of **U-Net and R2U-Net architectures**
-* Image preprocessing and dataset preparation
-* Visualization of segmented vein structures
-* Supports research in **medical image analysis**
+> **Research / educational project:** This project is intended for experimentation and research in medical image segmentation and is not a medical diagnostic or clinical decision-making system.
 
 ---
 
-## Technology Stack
+## Key Features
 
-**Programming Language**
+- Vein segmentation from input images
+- U-Net implementation for semantic segmentation
+- R2U-Net implementation with recurrent residual blocks
+- Image preprocessing and normalization
+- Dataset preparation and loading
+- Model training and evaluation
+- Segmentation prediction
+- Output visualization
+- Modular Python-based project structure
 
-* Python
+---
 
-**Libraries and Frameworks**
+## Tech Stack
 
-* TensorFlow / Keras
-* OpenCV
-* NumPy
-* Matplotlib
-* Scikit-learn
+### Programming Language
 
-**Deep Learning Models**
+`Python`
 
-* U-Net
-* R2U-Net (Recurrent Residual U-Net)
+### Deep Learning
+
+`TensorFlow` `Keras`
+
+### Computer Vision & Data Processing
+
+`OpenCV` `NumPy` `Matplotlib` `Scikit-learn`
+
+### Models
+
+`U-Net` `R2U-Net`
+
+---
+
+## How It Works
+
+```text
+Input Image
+     │
+     ▼
+Image Preprocessing
+     │
+     ├── Resize
+     ├── Normalize
+     └── Prepare Image
+     │
+     ▼
+Deep Learning Model
+     │
+     ├── U-Net
+     │
+     └── R2U-Net
+     │
+     ▼
+Vein Segmentation
+     │
+     ▼
+Segmentation Mask
+     │
+     ▼
+Visualization
+```
+
+---
+
+## Model Architectures
+
+### U-Net
+
+U-Net is an encoder-decoder architecture widely used for biomedical image segmentation.
+
+The encoder extracts hierarchical image features, while the decoder reconstructs the spatial representation. Skip connections between the encoder and decoder help preserve important spatial information.
+
+### R2U-Net
+
+R2U-Net extends the U-Net architecture by incorporating **recurrent convolutional operations and residual connections**.
+
+The architecture is designed to improve feature representation while retaining the spatial reconstruction capabilities of U-Net.
 
 ---
 
 ## Project Structure
 
-```
+```text
 vein-vision-ai/
 │
-├── data/
-│   ├── raw/                 # Original dataset images
-│   ├── processed/           # Preprocessed images and masks
+├── Dataset/
 │
-├── models/
-│   ├── unet_model.py        # U-Net architecture implementation
-│   ├── r2unet_model.py      # R2U-Net architecture implementation
-│   └── trained_models/      # Saved trained model weights
+├── preprocessing/
+│
+├── readme_pics/
 │
 ├── src/
-│   ├── preprocessing.py     # Image preprocessing functions
-│   ├── dataset_loader.py    # Dataset loading utilities
-│   ├── train.py             # Model training script
-│   ├── predict.py           # Prediction script
-│   └── utils.py             # Helper functions
 │
-├── results/
-│   ├── predictions/         # Output segmented images
-│   └── evaluation/          # Accuracy and performance metrics
-│
-├── requirements.txt         # Project dependencies
-├── README.md                # Project documentation
-└── .gitignore               # Ignored files
-
+├── configuration_stare.txt
+├── prepare_datasets_STARE.py
+├── run_training.py
+├── run_testing.py
+├── requirements.txt
+├── README.md
+├── LICENSE
+└── .gitignore
 ```
+
+The repository separates dataset preparation, preprocessing, model implementation, training, and testing to keep the workflow modular.
 
 ---
 
 ## Dataset
 
-The dataset consists of **skin images containing visible vein patterns along with corresponding mask images** used for supervised learning. The masks represent the ground truth vein regions used for training the segmentation model.
+The project works with images containing visible vascular structures and corresponding segmentation masks.
 
-Preprocessing steps include:
+The dataset pipeline includes preprocessing steps such as:
 
-* Image resizing
-* Normalization
-* Noise reduction
-* Data augmentation (optional)
+- Image resizing
+- Pixel normalization
+- Image preparation
+- Mask preparation
+- Dataset organization
+- Optional augmentation
 
-These steps help improve model accuracy and generalization.
-
----
-
-## Model Architecture
-
-### U-Net
-
-U-Net is a convolutional neural network architecture designed for **biomedical image segmentation**. It contains an encoder-decoder structure with skip connections that help preserve spatial information and improve segmentation accuracy.
-
-### R2U-Net
-
-R2U-Net extends the U-Net architecture by incorporating **recurrent convolutional layers and residual connections**. This allows the model to capture deeper contextual information and improve performance on complex segmentation tasks.
-
----
-
-## Workflow
-
-1. **Data Collection**
-
-   * Obtain a dataset containing vein images and corresponding masks.
-
-2. **Data Preprocessing**
-
-   * Resize images
-   * Normalize pixel values
-   * Prepare mask labels for segmentation.
-
-3. **Model Training**
-
-   * Train U-Net and R2U-Net models using the prepared dataset.
-
-4. **Prediction**
-
-   * The trained model processes new images to detect vein patterns.
-
-5. **Output Visualization**
-
-   * Segmented images highlight the detected vein structures.
+The repository also includes dataset preparation code and STARE-related configuration.
 
 ---
 
 ## Installation
 
-Clone the repository:
+### 1. Clone the repository
 
-```
+```bash
 git clone https://github.com/Harshakiran08/vein-vision-ai.git
-```
-
-Navigate to the project directory:
-
-```
 cd vein-vision-ai
 ```
 
-Install required dependencies:
+### 2. Create a virtual environment
 
+```bash
+python -m venv venv
 ```
+
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+On macOS/Linux:
+
+```bash
+source venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## Running the Project
+## Usage
 
-Train the model:
+### Prepare the Dataset
 
-```
-python src/train.py
+Run the dataset preparation script according to the configured dataset paths:
+
+```bash
+python prepare_datasets_STARE.py
 ```
 
-Run prediction on new images:
+### Train the Model
 
+```bash
+python run_training.py
 ```
-python src/predict.py
+
+### Test the Model
+
+```bash
+python run_testing.py
 ```
+
+> Dataset paths and configuration values may need to be adjusted for the local environment before running the scripts.
+
+---
+
+## Results
+
+Add your **actual experimental results** here.
+
+For example:
+
+| Model | Dice Score | IoU | Loss |
+|---|---:|---:|---:|
+| U-Net | `XX.XX%` | `XX.XX%` | `X.XXXX` |
+| R2U-Net | `XX.XX%` | `XX.XX%` | `X.XXXX` |
+
+Only publish values produced by your actual experiments.
+
+### Visual Results
+
+Add representative examples showing:
+
+```text
+Input Image → Ground Truth → U-Net Prediction → R2U-Net Prediction
+```
+
+Recommended images:
+
+- Original input
+- Ground-truth segmentation mask
+- U-Net output
+- R2U-Net output
+- Side-by-side comparison
 
 ---
 
 ## Applications
 
-* Intravenous injection assistance
-* Blood sample collection
-* Medical diagnostics
-* Biomedical research
-* Smart healthcare devices
+The techniques explored in this project can be relevant to research areas such as:
+
+- Biomedical image analysis
+- Medical image segmentation
+- Vascular structure visualization
+- Computer-assisted imaging research
+- Deep learning research
+
+The project does **not** provide medical diagnosis or clinical recommendations.
 
 ---
 
 ## Future Improvements
 
-* Real-time vein detection using camera input
-* Deployment on mobile healthcare devices
-* Integration with hospital imaging systems
-* Use of advanced architectures such as **Attention U-Net**
+Potential improvements include:
+
+- Attention-based segmentation architectures
+- Improved data augmentation
+- Hyperparameter optimization
+- More comprehensive evaluation metrics
+- Real-time image segmentation
+- GPU-optimized inference
+- Model deployment through an API
+- Web-based visualization interface
+- Mobile or edge-device experimentation
+
+---
+
+## Learning Outcomes
+
+This project provided practical experience with:
+
+- Deep learning model development
+- Semantic image segmentation
+- U-Net architecture
+- R2U-Net architecture
+- Medical image preprocessing
+- Dataset preparation
+- Model training and evaluation
+- Computer vision workflows
+- Python-based ML project organization
+
+---
+
+## License
+
+This project is licensed under the **MIT License**.
 
 ---
 
 ## Author
 
 **Harsha Kiran H B**
-B.E – Information Science & Engineering
-Jyothy Institute of Technology (VTU)
 
----
+B.E. — Information Science & Engineering
 
-## License
-
-This project is open-source and available under the MIT License.
+GitHub: [@Harshakiran08](https://github.com/Harshakiran08)
